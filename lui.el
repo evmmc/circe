@@ -191,14 +191,14 @@ matching the highlighted text, an integer for the submatch and a
 face for highlighting the match."
   :type `(set
           (const :tag "*Strong* text"
-                 (,(rx (or bol whitespace)
+                 (,(rx symbol-start
                        (group "*" (+? (not (any whitespace "*"))) "*")
-                       (or eol whitespace))
+                       symbol-end)
                   1 lui-strong-face))
           (const :tag "_Emphasized_ text"
-                 (,(rx (or bol whitespace)
+                 (,(rx symbol-start
                        (group "_" (+? (not (any whitespace "_"))) "_")
-                       (or eol whitespace))
+                       symbol-end)
                   1 lui-emphasis-face)))
   :group 'lui)
 
